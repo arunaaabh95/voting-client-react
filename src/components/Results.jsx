@@ -36,7 +36,7 @@ export const Results = createReactClass({
           </div>
           <div className = "management" >
           <Row>
-          <Col className="l6 m6 s6 padding-5">
+          <Col className="l6 m6 s3 pull-s2">
           <Link to="/">
           <Button ref = "next" className = "next grey-text white"
               onClick = {this.props.next} >
@@ -44,7 +44,7 @@ export const Results = createReactClass({
           </Button>
           </Link>
           </Col>
-          <Col className="l6 m6 s6 padding-5">
+          <Col className="l6 m6 s3 push-s2">
           <Link to="/">
           <Button ref = "restart" className = "restart grey-text white"
             onClick = {this.props.restart} >

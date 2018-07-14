@@ -16,19 +16,14 @@ export default createReactClass({
     return this.props.vote(entry);
   },
   render: function() {
-    const spanStyle = {
-      padding: '10px !important',
-      lineHeight: '12px !important'
-    }
     return (<div className = "voting">
       <Row>
       {this.getPair().map(entry =>
-        <Col className="l6 m6 s9">
+        <Col className="l6 m6 s12">
         <Button key={entry}
           className = {`${ this.hasVotedFor(entry)?'clicked':''} white grey-text option`}
           disabled = {this.hasVotedFor(entry)}
-          onClick = {() => this.vote(entry)}
-          style = {spanStyle}>
+          onClick = {() => this.vote(entry)}>
           <span className="padding-5">{entry}</span>
         </Button>
         </Col>
