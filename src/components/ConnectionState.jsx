@@ -14,7 +14,7 @@ export const ConnectionState = createReactClass({
     return `Not connected (${this.props.state})`;
   },
   render: function() {
-    return (<div className="connectionState"
+    return (<div className="connectionState white-text"
                 style={{display: this.isVisible() ? 'block' : 'none'}}>
       {this.getMessage()}
     </div>);

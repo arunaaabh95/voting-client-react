@@ -6,6 +6,8 @@ import {
   connect
 } from 'react-redux';
 import * as actionCreators from '../action_creators';
+import {Button, Row, Col} from 'react-materialize';
+import {Link, withRouter} from 'react-router-dom';
 
 export const Results = createReactClass({
       mixins: [PureRenderMixin],
@@ -25,23 +27,32 @@ export const Results = createReactClass({
           <div className = "results" >
             <div className = "tally" >
               {this.getPair().map(entry =>
-              <div key = {entry} className = "entry" >
-                <h1 > {entry} < /h1>
-                <div className = "voteCount" >
-                  {this.getVotes(entry)}
-              </div>
+              <Row>
+              <div key = {entry} className = {`entry flow-text white-text`} >
+                <span> {entry} : {this.getVotes(entry)} </span>
             </div>
+            </Row>
           )};
           </div>
           <div className = "management" >
-          <button ref = "next" className = "next"
+          <Row>
+          <Col className="l6 m6 s3 pull-s2">
+          <Link to="/">
+          <Button ref = "next" className = "next grey-text white"
               onClick = {this.props.next} >
               Next
-          </button>
-          <button ref = "restart" className = "restart"
+          </Button>
+          </Link>
+          </Col>
+          <Col className="l6 m6 s3 push-s2">
+          <Link to="/">
+          <Button ref = "restart" className = "restart grey-text white"
             onClick = {this.props.restart} >
             Restart
-          </button>
+          </Button>
+          </Link>
+          </Col>
+          </Row>
         </div>
       </div>);
     }
@@ -55,4 +66,4 @@ export const Results = createReactClass({
       });
     }
 
-    export const ResultsContainer = connect(mapStateToProps, actionCreators)(Results);
+    export const ResultsContainer = withRouter(connect(mapStateToProps, actionCreators)(Results));
